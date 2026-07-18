@@ -1,0 +1,59 @@
+/*
+【課題31 関数ポインタで関数を切り替える】
+
+関数ポインタを使ってください。
+
+条件
+
+・add関数を作成する
+    戻り値：a + b
+
+・sub関数を作成する
+    戻り値：a - b
+
+・関数ポインタを宣言する
+
+・最初に関数ポインタへaddを代入して呼び出す
+
+・次に関数ポインタへsubを代入して呼び出す
+
+・結果を表示する
+
+実行例
+
+add = 30
+sub = -10
+*/
+
+#include <stdio.h>
+
+int add(int a, int b);
+int sub(int a, int b);
+
+int main(void)
+{
+    int a = 10;
+    int b = 20;
+    int result;
+    int (*func)(int, int);
+
+    func = add;
+    result = func(a, b);
+    printf("add = %d\n", result);
+
+    func = sub;
+    result = func(a, b);
+    printf("sub = %d\n", result);
+
+    return 0;
+}
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int sub(int a, int b)
+{
+    return a - b;
+}
